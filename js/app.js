@@ -117,6 +117,11 @@ mutationObserver = new MutationObserver(mutated);
 mutationObserver.observe(main, config);
 
 // Scroll to section on link click
-
+navBar.addEventListener("click", event => {
+  event.preventDefault();
+  const targetSectionId = event.target.getAttribute("href");
+  const targetSection = document.querySelector(targetSectionId);
+  targetSection.scrollIntoView({ behavior: 'smooth', block: 'end' })
+})
 // Set sections as active
 document.addEventListener("scroll", setActive)
